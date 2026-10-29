@@ -1,0 +1,418 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Clan Suzu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap">
+<style>
+/* Concept : une vallée sombre derrière un rideau de cascades. Pétales en haut, cendres au milieu, une seule famille à la fin. Monde unique, sombre. */
+:root {
+  --bg: #0d1819;
+  --bg2: #13262a;
+  --fg: #e7efec;
+  --soft: #cbd9d5;
+  --muted: #9ab0aa;
+  --line: rgba(231, 239, 236, .14);
+  --bloom: #eab7ca;
+  --lilac: #b7a8e6;
+  --mist: #86b8b5;
+  --ember: #e3834f;
+  --display: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  --body: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1.0625rem/1.75 var(--body);
+  -webkit-text-size-adjust: 100%;
+}
+.wrap {
+  width: min(100%, 1080px);
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(1.9rem, 5.4vw, 3rem); line-height: 1.15; }
+h3 { font-size: 1.25rem; line-height: 1.3; }
+p { margin: 0 0 1.1em; max-width: 62ch; color: var(--soft); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--bloom); outline-offset: 3px; }
+
+.eyebrow {
+  display: flex; align-items: baseline; gap: .8rem;
+  margin: 0 0 1.1rem;
+  font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--mist);
+}
+.eyebrow .k { font-family: var(--display); font-size: 1.5rem; letter-spacing: 0; text-transform: none; color: var(--bloom); }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; background: radial-gradient(120% 90% at 85% 0%, #1d3d42 0%, var(--bg) 62%); }
+.hero .wrap { position: relative; z-index: 2; padding-block: clamp(28px, 5vw, 48px) clamp(44px, 7vw, 80px); }
+.falls {
+  position: absolute; top: 0; right: 0; bottom: 0; width: min(55%, 460px); z-index: 0; opacity: .6;
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 9px, rgba(160, 210, 215, .14) 9px 11px, transparent 11px 19px, rgba(160, 210, 215, .07) 19px 20px),
+    repeating-linear-gradient(180deg, transparent 0 60px, rgba(255, 255, 255, .10) 60px 120px);
+  background-size: auto, 100% 240px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%);
+  mask-image: linear-gradient(90deg, transparent, #000 45%);
+  animation: flow 6s linear infinite;
+}
+@keyframes flow { to { background-position: 0 0, 0 240px; } }
+#petals { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.vert {
+  position: absolute; z-index: 1; top: 0; right: max(10px, env(safe-area-inset-right, 0px));
+  writing-mode: vertical-rl; font-family: var(--display); font-weight: 700;
+  font-size: clamp(4.2rem, 17vw, 9.5rem); line-height: 1.05; padding-top: 4.5rem;
+  color: rgba(234, 183, 202, .16); pointer-events: none; user-select: none;
+}
+.topnav { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; }
+.topnav a { text-decoration: none; color: var(--muted); padding-block: .3rem; }
+.topnav a:hover { color: var(--bloom); }
+.hero-body { padding-top: clamp(56px, 11vw, 130px); padding-right: clamp(0px, 14vw, 140px); }
+.hero h1 { font-size: clamp(3.6rem, 15vw, 8.5rem); line-height: 1; letter-spacing: .02em; }
+.tagline { font-family: var(--display); font-size: clamp(1.15rem, 3.4vw, 1.65rem); color: var(--bloom); margin: .7rem 0 0; max-width: none; }
+.lead { margin-top: 1.5rem; max-width: 44ch; font-size: 1.1rem; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.1rem 2rem; margin: clamp(36px, 6vw, 64px) 0 0; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.facts div { min-width: 0; }
+.facts dt { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: .25rem 0 0; font-family: var(--display); font-size: 1.2rem; line-height: 1.3; }
+
+/* Sections */
+.sec { padding-block: clamp(56px, 9vw, 104px); border-top: 1px solid var(--line); }
+.split { display: grid; gap: 2rem clamp(2rem, 6vw, 4.5rem); grid-template-columns: 1fr; margin-top: 2rem; }
+.split > * { min-width: 0; }
+@media (min-width: 860px) { .split { grid-template-columns: 1.15fr .85fr; } }
+.pull { margin: 0; padding-left: 1.2rem; border-left: 2px solid var(--bloom); font-family: var(--display); font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.55; color: var(--bloom); }
+.domains { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; gap: 0 2rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.domains li { min-width: 0; padding: 1.2rem 0; border-top: 1px solid var(--line); }
+.domains .k { display: block; font-family: var(--display); font-size: 2rem; line-height: 1; color: var(--lilac); margin-bottom: .6rem; }
+.domains h3 { font-size: 1.05rem; margin-bottom: .3rem; }
+.domains p { font-size: .95rem; color: var(--muted); margin: 0; }
+.intro { margin-top: 1.4rem; }
+
+/* Rites */
+.rites { list-style: none; margin: 2.2rem 0 0; padding: 0; }
+.rites li { display: grid; grid-template-columns: 3.2rem 1fr; gap: 0 1.2rem; padding: 1.4rem 0; border-top: 1px solid var(--line); }
+.rites .k { font-family: var(--display); font-size: 2.6rem; line-height: 1; color: var(--bloom); }
+.rites h3 { margin-bottom: .35rem; }
+.rites p { margin: 0; }
+.garden { margin: 2.5rem 0 0; }
+.garden-box { border: 1px solid var(--line); background: linear-gradient(180deg, #102022 0%, var(--bg2) 100%); overflow: hidden; }
+.garden svg { display: block; width: 100%; height: auto; cursor: crosshair; touch-action: manipulation; }
+.bloom { transform-box: fill-box; transform-origin: 50% 100%; }
+.grow { animation: bloomIn .9s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes bloomIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.garden-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1rem; margin-top: 1rem; }
+.garden-bar .count { margin-left: auto; font-size: .85rem; color: var(--muted); }
+.garden figcaption { margin-top: .6rem; font-size: .85rem; color: var(--muted); }
+.btn { font: 500 .92rem var(--body); letter-spacing: .02em; color: var(--fg); background: transparent; border: 1px solid rgba(231, 239, 236, .35); border-radius: 999px; padding: .6rem 1.2rem; cursor: pointer; }
+.btn:hover { border-color: var(--bloom); color: var(--bloom); }
+.btn.primary { background: var(--bloom); border-color: var(--bloom); color: #1a1013; }
+.btn.primary:hover { background: #f3c9d8; color: #1a1013; }
+
+/* Pourquoi on les convoitait */
+.reasons { list-style: none; margin: 2.2rem 0 0; padding: 0; }
+.reasons li { display: grid; gap: .4rem 3rem; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+@media (min-width: 760px) { .reasons li { grid-template-columns: 17rem 1fr; } }
+.reasons h3 { color: var(--bloom); }
+.reasons p { margin: 0; }
+.refus { margin-top: 2rem; font-family: var(--display); font-size: clamp(1.2rem, 2.8vw, 1.55rem); line-height: 1.55; max-width: 36em; }
+
+/* Cendres */
+.ember { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--bg) 0%, #1f120f 38%, #2b1610 100%); border-top: 1px solid rgba(227, 131, 79, .25); }
+.ember .eyebrow { color: var(--ember); }
+.ember .eyebrow .k { color: var(--ember); }
+.ember .wrap { position: relative; z-index: 2; }
+.burn { margin: 2.4rem 0; font-family: var(--display); font-size: clamp(1.6rem, 4.6vw, 2.7rem); line-height: 1.3; color: #f4c9ae; max-width: 22em; text-wrap: balance; }
+.ashes { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.ashes span { position: absolute; top: -3%; border-radius: 50%; background: #d9c3b6; opacity: 0; animation: ashFall linear infinite; }
+@keyframes ashFall {
+  0% { top: -3%; opacity: 0; transform: translateX(0); }
+  10% { opacity: .75; }
+  100% { top: 103%; opacity: .1; transform: translateX(var(--dx)); }
+}
+
+/* Dispersion, aujourd'hui */
+.oath { margin: 2rem 0 0; }
+.last h2 { font-size: clamp(2.2rem, 7vw, 4rem); }
+.keep { list-style: none; margin: 2.2rem 0 0; padding: 0; display: grid; gap: 0 2rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.keep li { padding: 1.2rem 0; border-top: 1px solid var(--line); min-width: 0; }
+.keep h3 { margin-bottom: .3rem; color: var(--lilac); }
+.keep p { margin: 0; font-size: .98rem; color: var(--muted); }
+.coda { margin-top: 2.4rem; font-family: var(--display); font-size: clamp(1.15rem, 2.6vw, 1.45rem); line-height: 1.6; max-width: 34em; color: var(--fg); }
+footer { padding-block: 2rem calc(2rem + 8px); border-top: 1px solid var(--line); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .falls, .grow, .ashes span { animation: none; }
+}
+</style>
+
+<header class="hero">
+  <div class="falls" aria-hidden="true"></div>
+  <canvas id="petals" aria-hidden="true"></canvas>
+  <div class="vert" aria-hidden="true">鈴の里</div>
+  <div class="wrap">
+    <nav class="topnav" aria-label="Sections">
+      <a href="#origines">Origines</a>
+      <a href="#rites">Rites</a>
+      <a href="#convoitise">Convoitise</a>
+      <a href="#cendres">Cendres</a>
+      <a href="#aujourdhui">Aujourd'hui</a>
+    </nav>
+    <div class="hero-body">
+      <h1>Clan Suzu</h1>
+      <p class="tagline">Le clan des fleurs derrière les cascades</p>
+      <p class="lead">Un clan venu du pays des Cascades. Presque effacé. Il en reste une famille.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Origine</dt><dd>Pays des Cascades</dd></div>
+      <div><dt>Village</dt><dd>Suzunosato</dd></div>
+      <div><dt>Art</dt><dd>Combat et infiltration par les fleurs</dd></div>
+      <div><dt>Survivants</dt><dd>Une seule famille</dd></div>
+    </dl>
+  </div>
+</header>
+
+<main>
+  <section class="sec" id="origines">
+    <div class="wrap">
+      <p class="eyebrow"><span class="k">滝</span> Origines</p>
+      <h2>Derrière le rideau d'eau</h2>
+      <div class="split">
+        <div>
+          <p>Les Suzu ne viennent pas du pays du Feu. Ils vivaient au pays des Cascades, dans une vallée cachée derrière un rideau de chutes d'eau, loin des routes et des regards. Le brouillard qui montait des cascades gardait la vallée humide, et des jardins y poussaient en toute saison.</p>
+          <p>Le clan vivait dans un seul village, Suzunosato, bâti autour d'un jardin sacré. Au centre se dressait l'Arbre-Mère, un arbre immense que les Suzu considéraient comme la source de leur chakra.</p>
+          <p>Ils vivaient à l'écart, sans seigneur ni allégeance, en échangeant seulement des remèdes et des graines avec quelques voyageurs de confiance.</p>
+        </div>
+        <blockquote class="pull">Pour eux, le chakra n'était pas qu'une arme. C'était une floraison, qu'on cultive, qu'on soigne et qu'on offre.</blockquote>
+      </div>
+      <p class="intro">Les fleurs faisaient partie de tous les aspects de leur vie. Chaque membre du clan les utilisait à sa façon.</p>
+      <ul class="domains">
+        <li><span class="k" aria-hidden="true">癒</span><h3>Soin</h3><p>Refermer les plaies, apaiser, soulager.</p></li>
+        <li><span class="k" aria-hidden="true">戦</span><h3>Combat</h3><p>Protéger la vallée et affronter ceux qui la menacent.</p></li>
+        <li><span class="k" aria-hidden="true">工</span><h3>Artisanat</h3><p>Parfums, teintures et fibres d'une qualité rare.</p></li>
+        <li><span class="k" aria-hidden="true">農</span><h3>Agriculture</h3><p>Faire revivre des terres épuisées.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="rites">
+    <div class="wrap">
+      <p class="eyebrow"><span class="k">花</span> Rites</p>
+      <h2>Ce qu'on plante au jardin sacré</h2>
+      <ul class="rites">
+        <li><span class="k" aria-hidden="true">生</span><div><h3>La fleur de naissance</h3><p>À la naissance d'un enfant, on plante une fleur au jardin sacré. Sa santé reflète celle de son porteur, et sa floraison marque ses grands moments de vie.</p></div></li>
+        <li><span class="k" aria-hidden="true">咲</span><div><h3>La Première Floraison</h3><p>Vers six ou sept ans, l'enfant fait éclore sa première fleur de chakra devant le clan. Cette fleur le suivra toute sa vie.</p></div></li>
+        <li><span class="k" aria-hidden="true">弔</span><div><h3>Le deuil</h3><p>À chaque mort, on plante une fleur au jardin sacré, qu'on laisse pousser sans jamais la couper.</p></div></li>
+      </ul>
+      <figure class="garden">
+        <div class="garden-box">
+          <svg id="garden" viewBox="0 0 800 240" role="img" aria-label="Le jardin sacré de Suzunosato : touche le sol pour planter une fleur">
+            <path d="M0 224 H800" stroke="#3b6a5d" stroke-width="2" fill="none"/>
+            <rect x="0" y="225" width="800" height="15" fill="#0c1a1a"/>
+          </svg>
+        </div>
+        <div class="garden-bar">
+          <button class="btn primary" type="button" id="plant">Planter une fleur</button>
+          <button class="btn" type="button" id="clear">Vider le jardin</button>
+          <span class="count" id="count" aria-live="polite"></span>
+        </div>
+        <figcaption>Le jardin sacré de Suzunosato. Touche le sol pour y planter une fleur.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="convoitise">
+    <div class="wrap">
+      <p class="eyebrow"><span class="k">忍</span> Convoitise</p>
+      <h2>Pourquoi on les convoitait</h2>
+      <p class="intro">Les Suzu étaient peu nombreux, mais redoutés pour leur façon de se battre et de s'infiltrer.</p>
+      <ul class="reasons">
+        <li><h3>Des infiltrateurs sans équivalent</h3><p>En quelques secondes, un Suzu faisait pousser une végétation qui masquait sa présence, sa trace de chakra et son odeur. Les gardes passaient à côté sans le voir, et les forteresses ne servaient à rien.</p></li>
+        <li><h3>Des assassins silencieux</h3><p>Leurs techniques ne laissaient ni bruit ni trace de chakra. Une cible pouvait mourir dans son sommeil, au milieu de ses gardes, sans que personne comprenne comment.</p></li>
+        <li><h3>Un combat de terrain</h3><p>Sur un champ de bataille, un Suzu transformait le sol en piège vivant. Il entravait des centaines de soldats avant le premier affrontement, ou fermait une route entière derrière lui.</p></li>
+        <li><h3>Des espions qui se fondent partout</h3><p>Leur art leur permettait d'agir sans jamais se faire remarquer : renseignement, sabotage, élimination ciblée.</p></li>
+        <li><h3>Un combat sans armes visibles</h3><p>Face à un Suzu, l'adversaire ne voyait ni lame ni technique évidente, seulement le décor qui se refermait peu à peu sur lui.</p></li>
+      </ul>
+      <p class="refus">Des rumeurs ont circulé sur ces guerriers de l'ombre cachés derrière les cascades, puis des émissaires sont venus avec des offres : or, protection, alliance. Le clan a toujours refusé. Il ne voulait être l'arme de personne.</p>
+    </div>
+  </section>
+
+  <section class="sec ember" id="cendres">
+    <div class="ashes" id="ashes" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow"><span class="k">灰</span> Cendres</p>
+      <h2>La nuit de cendres</h2>
+      <p class="burn">L'Arbre-Mère a brûlé pendant trois jours, visible depuis l'autre côté des cascades.</p>
+      <p>Un soir de printemps, la vallée a été envahie. Il ne s'agissait pas d'une seule armée mais de plusieurs forces, sans bannière, venues ensemble.</p>
+      <p>Le feu a pris les jardins en premier. Les Suzu savaient se battre, mais leur puissance reposait sur leurs fleurs, que la flamme détruisait plus vite qu'ils ne pouvaient les faire renaître.</p>
+      <p>Suzunosato a disparu cette nuit-là. Les responsables n'ont jamais été clairement identifiés.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="dispersion">
+    <div class="wrap">
+      <p class="eyebrow"><span class="k">種</span> Dispersion</p>
+      <h2>Le serment des graines</h2>
+      <div class="split">
+        <div>
+          <p>Quelques dizaines de survivants ont fui dans toutes les directions, chacun avec une poignée de graines de l'Arbre-Mère. C'est le serment des graines : la promesse de faire renaître le clan un jour.</p>
+          <p>Mais les traqueurs les ont suivis. Année après année, les groupes ont été retrouvés ou ont disparu. Certains ont caché leur nom et abandonné leur art pour survivre, d'autres sont morts avant de pouvoir transmettre leur savoir.</p>
+        </div>
+        <blockquote class="pull oath">Peu à peu, le nom Suzu est devenu une légende : « le clan des fleurs derrière les cascades ».</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec last" id="aujourdhui">
+    <div class="wrap">
+      <p class="eyebrow"><span class="k">今</span> Aujourd'hui</p>
+      <h2>Une seule petite famille</h2>
+      <p class="intro">Il reste aujourd'hui une seule petite famille qui porte encore le sang des Suzu : celle de Ren. Elle s'est installée loin des cascades, dans le pays du Feu, et vit discrètement sous un nom d'emprunt.</p>
+      <ul class="keep">
+        <li><h3>Graines de l'Arbre-Mère</h3><p>Quelques graines, jamais plantées, par peur de les perdre.</p></li>
+        <li><h3>L'herbier</h3><p>Un herbier où sont consignés remèdes et techniques de floraison.</p></li>
+      </ul>
+      <p class="coda">Personne en dehors de la famille ne sait ce que le nom Suzu a été. Pour le reste du monde, ils ne sont qu'une famille de plus.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Clan Suzu · Fiche de clan · Famille de Ren Suzu</div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Pétales dans l'en-tête */
+  var cv = document.getElementById('petals');
+  var ctx = cv.getContext('2d');
+  var hero = cv.parentElement;
+  var W = 0, H = 0, petals = [];
+  var cols = ['rgba(234,183,202,.75)', 'rgba(183,168,230,.6)', 'rgba(134,184,181,.5)'];
+  function makePetal(anywhere) {
+    return {
+      x: Math.random() * W, y: anywhere ? Math.random() * H : -20,
+      r: 4 + Math.random() * 6, vy: 0.25 + Math.random() * 0.5, vx: -0.1 + Math.random() * 0.3,
+      a: Math.random() * 6.28, va: (Math.random() - 0.5) * 0.02, ph: Math.random() * 6.28,
+      c: cols[Math.floor(Math.random() * cols.length)]
+    };
+  }
+  function sizeCanvas() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = hero.clientWidth; H = hero.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.min(40, W / 26));
+    petals = [];
+    for (var i = 0; i < n; i++) petals.push(makePetal(true));
+  }
+  function drawPetals() {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < petals.length; i++) {
+      var p = petals[i];
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.a);
+      ctx.fillStyle = p.c;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, 6.283);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+  function tick() {
+    if (!document.hidden) {
+      for (var i = 0; i < petals.length; i++) {
+        var p = petals[i];
+        p.y += p.vy;
+        p.x += p.vx + Math.sin(p.y / 60 + p.ph) * 0.3;
+        p.a += p.va;
+        if (p.y > H + 20 || p.x > W + 20) petals[i] = makePetal(false);
+      }
+      drawPetals();
+    }
+    requestAnimationFrame(tick);
+  }
+  sizeCanvas();
+  drawPetals();
+  if (!reduce) tick();
+  window.addEventListener('resize', function () { sizeCanvas(); drawPetals(); });
+
+  /* Jardin sacré */
+  var svg = document.getElementById('garden');
+  var countEl = document.getElementById('count');
+  var NS = 'http://www.w3.org/2000/svg';
+  var tints = ['#eab7ca', '#b7a8e6', '#f2dfe6', '#86b8b5'];
+  var count = 0;
+  function el(name, attrs) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function updateCount() {
+    countEl.textContent = count === 0 ? 'Le jardin est vide.' : count + (count === 1 ? ' fleur' : ' fleurs') + ' au jardin sacré';
+  }
+  function plant(x, animate) {
+    var h = 60 + Math.random() * 100;
+    var lean = (Math.random() - 0.5) * 30;
+    var outer = el('g', { 'class': 'fl', transform: 'translate(' + x.toFixed(1) + ' 224)' });
+    var b = el('g', { 'class': 'bloom' + (animate && !reduce ? ' grow' : '') });
+    b.appendChild(el('path', { d: 'M0 0 Q ' + (lean * 0.2).toFixed(1) + ' ' + (-h * 0.5).toFixed(1) + ' ' + lean.toFixed(1) + ' ' + (-h).toFixed(1), stroke: '#4f7f6e', 'stroke-width': 2.2, fill: 'none', 'stroke-linecap': 'round' }));
+    b.appendChild(el('path', { d: 'M0 ' + (-h * 0.35).toFixed(1) + ' q 14 -10 22 -2 q -12 10 -22 2z', fill: '#4f7f6e' }));
+    var head = el('g', { transform: 'translate(' + lean.toFixed(1) + ' ' + (-h).toFixed(1) + ')' });
+    var c = tints[Math.floor(Math.random() * tints.length)];
+    for (var i = 0; i < 5; i++) {
+      head.appendChild(el('ellipse', { cx: 0, cy: -9, rx: 6, ry: 11, fill: c, opacity: 0.92, transform: 'rotate(' + (i * 72) + ')' }));
+    }
+    head.appendChild(el('circle', { r: 3.2, fill: '#f6e7b4' }));
+    b.appendChild(head);
+    outer.appendChild(b);
+    svg.appendChild(outer);
+    count++;
+    updateCount();
+  }
+  for (var i = 0; i < 9; i++) plant(50 + i * 88 + (Math.random() - 0.5) * 30, false);
+  svg.addEventListener('click', function (e) {
+    var r = svg.getBoundingClientRect();
+    plant(Math.max(20, Math.min(780, (e.clientX - r.left) / r.width * 800)), true);
+  });
+  document.getElementById('plant').addEventListener('click', function () {
+    plant(30 + Math.random() * 740, true);
+  });
+  document.getElementById('clear').addEventListener('click', function () {
+    var list = svg.querySelectorAll('g.fl');
+    for (var j = 0; j < list.length; j++) svg.removeChild(list[j]);
+    count = 0;
+    updateCount();
+  });
+
+  /* Cendres */
+  var ashes = document.getElementById('ashes');
+  for (var a = 0; a < 28; a++) {
+    var s = document.createElement('span');
+    var size = 2 + Math.random() * 3;
+    s.style.left = (Math.random() * 100).toFixed(1) + '%';
+    s.style.width = s.style.height = size.toFixed(1) + 'px';
+    s.style.setProperty('--dx', ((Math.random() - 0.3) * 80).toFixed(0) + 'px');
+    if (reduce) {
+      s.style.top = (Math.random() * 100).toFixed(0) + '%';
+      s.style.opacity = '.35';
+    } else {
+      s.style.animationDuration = (9 + Math.random() * 11).toFixed(1) + 's';
+      s.style.animationDelay = (-Math.random() * 18).toFixed(1) + 's';
+    }
+    ashes.appendChild(s);
+  }
+})();
+</script>
+
+</body></html>
